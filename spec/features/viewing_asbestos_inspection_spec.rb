@@ -13,7 +13,7 @@ RSpec.feature 'Viewing Asbestos Inspection' do
   end
 
   def then_i_should_see_the_inspection_data
-    expect(json).to include('inspection_data' => 'some inspection data in json')
+    expect(json).to include('inspection_data' => "Inspection data about 233453978")
   end
 
   def json

@@ -1,5 +1,5 @@
 class InspectionsController < ApplicationController
-    def show
+  def show
     render json: view_inspection_use_case.view(params.fetch(:id))
   end
 
