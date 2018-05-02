@@ -4,7 +4,15 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.4.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.0'
+gem 'activesupport', '~> 5.2.0'
+gem 'actionpack', '~> 5.2.0'
+gem 'actionview', '~> 5.2.0'
+gem 'activemodel', '~> 5.2.0'
+gem 'actionmailer', '~> 5.2.0'
+gem 'activejob', '~> 5.2.0'
+gem 'actioncable', '~> 5.2.0'
+gem 'railties', '~> 5.2.0'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
