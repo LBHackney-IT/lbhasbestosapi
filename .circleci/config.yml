@@ -5,6 +5,7 @@
 version: 2
 jobs:
   build:
+
     docker:
       # specify the version you desire here
        - image: circleci/ruby:2.4.2
@@ -35,3 +36,38 @@ jobs:
       - run:
           name: run tests
           command: bundle exec rspec
+
+  deploy_to_staging:
+    docker:
+      - image: circleci/ruby:2.5.2
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "a2:cf:e1:e6:e3:90:2b:4f:02:9a:79:e9:6a:f5:6a:ac"
+      - run:
+          name: Install Heroku CLI
+          command: bash .circleci/setup-heroku.sh
+      - run:
+          name: Deploy to Heroku Production
+          command: |
+            heroku git:remote -a $HEROKU_STAGING_APP_NAME
+            git push --force git@heroku.com:$HEROKU_STAGING_APP_NAME.git HEAD:refs/heads/master
+            sleep 5 # sleep for 5 seconds to wait for dynos
+            heroku restart
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy_to_staging:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+
