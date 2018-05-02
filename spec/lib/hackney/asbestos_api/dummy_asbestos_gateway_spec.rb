@@ -8,4 +8,12 @@ RSpec.describe Hackney::AsbestosAPI::DummyAsbestosGateway do
       expect(subject.pdf_path).to eq('https://example.com/my.pdf?3423432')
     end
   end
+
+  context 'when retrieving inspections' do
+    subject {described_class.new.find_inspection_by_uprn('21323123') }
+
+    it 'should return inspection data' do
+      expect(subject.inspection_data).to eq('Inspection data about 21323123')
+    end
+  end
 end
