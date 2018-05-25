@@ -9,7 +9,7 @@ RSpec.feature 'Viewing Asbestos Inspection' do
   private
 
   def when_i_view_the_inspection
-    visit inspection_path('233453978')
+    visit inspection_path('233453978', token: ENV['SECRET_TOKEN'])
   end
 
   def then_i_should_see_the_inspection_data

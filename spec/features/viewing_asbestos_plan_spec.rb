@@ -9,7 +9,7 @@ RSpec.feature 'Viewing Asbestos Plan' do
   private
 
   def when_i_view_a_plan
-    visit plan_path('233453978')
+    visit plan_path('233453978', token: ENV['SECRET_TOKEN'])
   end
 
   def then_i_should_see_the_pdf_path
