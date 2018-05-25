@@ -13,7 +13,7 @@ RSpec.feature 'Viewing Asbestos Plan' do
   end
 
   def then_i_should_see_the_pdf_path
-    expect(json).to include('pdf_path' => 'https://example.com/my.pdf?233453978')
+    expect(json).to include('pdf_path2' => 'https://example.com/my.pdf?233453978')
   end
 
   def json
