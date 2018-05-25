@@ -1,7 +1,7 @@
 module Hackney
   module AsbestosAPI
     class ViewPlan
-      Response = Struct.new(:pdf_path2)
+      Response = Struct.new(:pdf_path)
 
       def initialize(asbestos_gateway:)
         @asbestos_gateway = asbestos_gateway
