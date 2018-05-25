@@ -39,7 +39,7 @@ jobs:
 
   deploy_to_staging:
     docker:
-      - image: circleci/ruby:2.5.2
+      - image: circleci/ruby:2.4.2
 
     working_directory: ~/repo
 
